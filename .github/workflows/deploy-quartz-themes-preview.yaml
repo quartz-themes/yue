@@ -72,11 +72,7 @@ jobs:
           timeout_minutes: 2
           max_attempts: 3
           command: |
-            IN="${{ github.event.repository.name }}.null"
-            arrIN=(${IN//\./ })
             npx quartz plugin update
-            npx quartz plugin config quartz-themes --set theme=${arrIN[0]}
-            npx quartz plugin config quartz-themes --set variations=${arrIN[1]}
 
       - name: Push updates
         uses: nick-fields/retry@v3
